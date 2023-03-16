@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val animal = Dog("Jack", 5)
-        animal
+//        val animal = Dog("Jack", 5)
+//        animal
         Animal.legCount
         Animal.getBiologicalClass()
 
