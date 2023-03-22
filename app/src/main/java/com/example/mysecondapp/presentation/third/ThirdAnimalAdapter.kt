@@ -1,4 +1,4 @@
-package com.example.mysecondapp.second
+package com.example.mysecondapp.presentation.third
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,15 +8,16 @@ import com.example.mysecondapp.Animal
 import com.example.mysecondapp.R
 import com.example.mysecondapp.databinding.ItemAnimalBinding
 
-class SecondAnimalAdapter(
+class ThirdAnimalAdapter(
     val onClick: (model: Animal, position: Int) -> Unit
-) : RecyclerView.Adapter<SecondAnimalAdapter.AnimalViewHolder>() {
+) : RecyclerView.Adapter<ThirdAnimalAdapter.AnimalViewHolder>() {
 
     private val list = ArrayList<Animal>()
 
     inner class AnimalViewHolder(val binding: ItemAnimalBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(animal: Animal, position: Int) {
+
+        fun bindView(animal: Animal, position: Int) {
             binding.tvName.text = animal.name
             binding.tvDesc.text = animal.desc
             binding.btn.setOnClickListener {
@@ -24,11 +25,12 @@ class SecondAnimalAdapter(
             }
 
             Glide.with(binding.iv.context)
-                .load("https://i.imgur.com/AxETlhd.jpg")
+                .load(R.drawable.cat)
                 .centerInside()
-                .placeholder(R.drawable.cat)
                 .into(binding.iv)
+
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalViewHolder {
@@ -37,7 +39,8 @@ class SecondAnimalAdapter(
     }
 
     override fun onBindViewHolder(holder: AnimalViewHolder, position: Int) {
-        holder.bindItem(list[position], position)
+        val animal = list[position]
+        holder.bindView(animal, position)
     }
 
     override fun getItemCount(): Int {

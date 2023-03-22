@@ -1,4 +1,4 @@
-package com.example.mysecondapp
+package com.example.mysecondapp.presentation.first
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,7 +26,11 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonToSecond.setOnClickListener {
-            findNavController().navigate(FirstFragmentDirections.firstToSecond("Some string from first fragment"))
+            findNavController().navigate(
+                FirstFragmentDirections.firstToSecond(
+                    "Some string from first fragment"
+                )
+            )
         }
         binding.buttonToThird.setOnClickListener {
             findNavController().navigate(FirstFragmentDirections.firstToThird())

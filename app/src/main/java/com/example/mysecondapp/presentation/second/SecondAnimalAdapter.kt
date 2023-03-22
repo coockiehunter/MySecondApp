@@ -1,36 +1,35 @@
-package com.example.mysecondapp.third
+package com.example.mysecondapp.presentation.second
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mysecondapp.Animal
 import com.example.mysecondapp.R
 import com.example.mysecondapp.databinding.ItemAnimalBinding
+import com.example.mysecondapp.domain.animal.model.Animal
 
-class ThirdAnimalAdapter(
+class SecondAnimalAdapter(
     val onClick: (model: Animal, position: Int) -> Unit
-) : RecyclerView.Adapter<ThirdAnimalAdapter.AnimalViewHolder>() {
+) : RecyclerView.Adapter<SecondAnimalAdapter.AnimalViewHolder>() {
 
     private val list = ArrayList<Animal>()
 
     inner class AnimalViewHolder(val binding: ItemAnimalBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
-        fun bindView(animal: Animal, position: Int) {
+        fun bindItem(animal: Animal, position: Int) {
             binding.tvName.text = animal.name
-            binding.tvDesc.text = animal.desc
+            binding.tvDesc.text = animal.decs
             binding.btn.setOnClickListener {
                 onClick(animal, position)
             }
 
+//            val url = "https://pepiainpcvlatamappst.blob.core.windows.net/iai-cv-latamapp-planograms/LATAM%2F528%2F6%20TRAMOS%205N%20TIENDA%20528%2Frack_1.jpg?sv=2021-10-04&st=2023-03-21T19%3A09%3A32Z&se=2023-03-21T19%3A19%3A32Z&sr=b&sp=r&sig=M0%2BjaYuSABWpwt4JmJ2NAxhWYFFGStTnrAFJcV%2Bd9kM%3D"
             Glide.with(binding.iv.context)
-                .load(R.drawable.cat)
+                .load("https://i.imgur.com/AxETlhd.jpg")
                 .centerInside()
+                .placeholder(R.drawable.cat)
                 .into(binding.iv)
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalViewHolder {
@@ -39,8 +38,7 @@ class ThirdAnimalAdapter(
     }
 
     override fun onBindViewHolder(holder: AnimalViewHolder, position: Int) {
-        val animal = list[position]
-        holder.bindView(animal, position)
+        holder.bindItem(list[position], position)
     }
 
     override fun getItemCount(): Int {
