@@ -44,10 +44,13 @@ class SecondFragment : Fragment() {
         }
 
         swipe.setOnRefreshListener {
-            viewModel.getAnimalList()
+            viewModel.getAllData()
         }
         viewModel.animalListLd.observe(viewLifecycleOwner) {
             adapter.setNewData(it)
+        }
+        viewModel.weatherLd.observe(viewLifecycleOwner) {
+            tv.text = it
         }
         viewModel.isLoading.observe(viewLifecycleOwner) {
 //            swipe.isRefreshing = it

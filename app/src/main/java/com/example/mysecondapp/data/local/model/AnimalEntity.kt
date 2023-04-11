@@ -5,6 +5,6 @@ data class AnimalEntity(
     val externalId: String,
     val name: String,
     val decs: String,
-    val createDate: Long,
+    val createDate: Long, // 23456789765434567890
     val picture: Int?, // resId R.id.img
 )

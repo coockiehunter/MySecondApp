@@ -23,7 +23,8 @@ object AnimalUseCase {
 
     fun mapEntityToDomain(data: AnimalEntity): Animal {
         val date = Date(data.createDate)
-        val dateStr = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()).format(date)
+        val dateStr =
+            SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()).format(date) // convert date
         return Animal(
             data.id,
             data.name,
