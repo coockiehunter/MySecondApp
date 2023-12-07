@@ -28,12 +28,12 @@ object WeatherRepository {
         } else return null
 
 
-        val resp = safetyCall { api.getWeather(params) }
-
-        return when (resp) {
-            is Result.Success -> resp.data
-            else -> null
-        }
+//        val resp = safetyCall { api.getWeather(params) }
+//
+//        return when (resp) {
+//            is Result.Success -> resp.data
+//            else -> null
+//        }
 
     }
 
