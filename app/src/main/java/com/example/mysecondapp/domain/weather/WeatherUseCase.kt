@@ -10,7 +10,8 @@ object WeatherUseCase {
 
         // convert data for comfortable format for view
 
-        return repo.getWeather(lat, lon).toString()
+        val v = repo.getWeather(lat, lon)
+        return v.toString()
 
     }
 

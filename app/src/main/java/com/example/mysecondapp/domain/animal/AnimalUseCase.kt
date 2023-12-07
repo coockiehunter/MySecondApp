@@ -12,12 +12,12 @@ object AnimalUseCase {
     private val repo = AnimalRepository
 
     suspend fun getAnimal(): List<Animal> {
-        val dataFromRepo = repo.getAnimalList()
+        val dataFromRepo: List<AnimalEntity> = repo.getAnimalList()
         val data = ArrayList<Animal>()
         dataFromRepo.forEach {
             data.add(mapEntityToDomain(it))
         }
-        delay(200)
+        delay(700)
         return data
     }
 

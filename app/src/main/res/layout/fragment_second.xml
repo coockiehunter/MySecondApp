@@ -9,9 +9,7 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
+                android:maxLines="2"
                 android:text="@string/hello_blank_fragment"
                 app:layout_constraintTop_toTopOf="parent" />
 

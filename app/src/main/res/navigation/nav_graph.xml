@@ -33,5 +33,9 @@
         android:id="@+id/thirdFragment"
         android:name="com.example.mysecondapp.presentation.third.ThirdFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_third">
+        <argument
+            android:name="animal"
+            app:argType="com.example.mysecondapp.domain.animal.model.Animal" />
+    </fragment>
 </navigation>

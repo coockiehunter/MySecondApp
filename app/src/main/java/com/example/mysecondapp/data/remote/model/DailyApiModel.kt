@@ -16,9 +16,9 @@ data class DailyApiModel(
     @SerializedName("wind_deg") val windDegrees: Int?,
     val uvi: Float?,  //Midday UV index
     val clouds: Int?,
-    val pop: Int?,
+    val pop: Float?,
     val visibility: Long?, // Average visibility, metres
     val weather: List<WeatherTypeApiModel>?,
-    val rain: SnowRainApiModel?,
-    val snow: SnowRainApiModel?,
+    val rain: Float?,
+    val snow: Float?,
 )

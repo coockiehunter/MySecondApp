@@ -9,7 +9,7 @@ object ApiFactory {
 
     const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
 
-    private val retrofit = createRetrofit()
+    private val retrofit: Retrofit = createRetrofit()
     val weatherApi: WeatherApiInterface = retrofit.create(WeatherApiInterface::class.java)
 
     private fun createRetrofit(): Retrofit {
@@ -17,7 +17,7 @@ object ApiFactory {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
 
-        val client = OkHttpClient.Builder()
+        val client: OkHttpClient = OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .build()
 

@@ -6,5 +6,10 @@ data class Book(
     val year: Int = 0
 ) {
 
+    fun read(number: Int): Boolean {
+        //
+        return true
+    }
+
 
 }

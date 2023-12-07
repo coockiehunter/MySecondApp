@@ -44,5 +44,9 @@ class SecondViewModel : ViewModel() {
         }
     }
 
+    fun saveUserData(v1: String, v2: String, v3: Int) {
+        //
+    }
+
 
 }

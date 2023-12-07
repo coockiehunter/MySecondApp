@@ -17,6 +17,6 @@ data class CurrentApiModel(
     @SerializedName("wind_speed") val windSpeed: Float?,
     @SerializedName("wind_deg") val windDegrees: Int?,
     val weather: List<WeatherTypeApiModel>?,
-    val rain: SnowRainApiModel?,
-    val snow: SnowRainApiModel?,
+    val rain: Float?,
+    val snow: Float?,
 )

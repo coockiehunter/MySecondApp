@@ -21,15 +21,14 @@ object WeatherRepository {
         params.put("units", "metric")
         params.put("exclude", "minutely")
 
-        val resp = safetyCall { api.getWeather(params) }
+        val dataFromInet = api.getWeather(params)
 
-//        val responce = api.getWeather(params)
-//        if(responce.isSuccessful && responce.body()!=null) {
-//                return responce.body()!!
-//        } else {
-//            return null
-//        }
-//
+        if (dataFromInet.isSuccessful && dataFromInet.body() != null) {
+            return dataFromInet.body()
+        } else return null
+
+
+        val resp = safetyCall { api.getWeather(params) }
 
         return when (resp) {
             is Result.Success -> resp.data

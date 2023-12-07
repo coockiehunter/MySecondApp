@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mysecondapp.R
 import com.example.mysecondapp.createAnimals
@@ -14,6 +17,7 @@ import com.example.mysecondapp.createAnimals
 class ThirdFragment : Fragment() {
 
     lateinit var adapter: ThirdAnimalAdapter
+    val args: ThirdFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +29,13 @@ class ThirdFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val tv = requireActivity().findViewById<TextView>(R.id.textView)
+        tv.text = args.animal.toString()
+
+        tv.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
         val rv = requireActivity().findViewById<RecyclerView>(R.id.rv)
 
         adapter = ThirdAnimalAdapter { animal, position ->
@@ -34,7 +45,6 @@ class ThirdFragment : Fragment() {
         adapter.setNewData(createAnimals())
 
         rv.adapter = adapter
-
 
     }
 

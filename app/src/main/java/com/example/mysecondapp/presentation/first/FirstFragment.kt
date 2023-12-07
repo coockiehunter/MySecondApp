@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.mysecondapp.Book
 import com.example.mysecondapp.databinding.FragmentFirstBinding
+import com.example.mysecondapp.domain.animal.model.Animal
 
 
 class FirstFragment : Fragment() {
@@ -30,6 +32,15 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val redBook = Book("название", "author", 1980)
+        val greenBook = Book("название", "author", 1980)
+
+        val isread = redBook.read(5)
+
+
+
+
+
         binding.buttonToSecond.setOnClickListener {
             findNavController().navigate(
                 FirstFragmentDirections.firstToSecond(
@@ -38,7 +49,11 @@ class FirstFragment : Fragment() {
             )
         }
         binding.buttonToThird.setOnClickListener {
-            findNavController().navigate(FirstFragmentDirections.firstToThird())
+            findNavController().navigate(
+                FirstFragmentDirections.firstToThird(
+                    Animal(56789L, "Rex", "desc", "5/11", null)
+                )
+            )
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner) {

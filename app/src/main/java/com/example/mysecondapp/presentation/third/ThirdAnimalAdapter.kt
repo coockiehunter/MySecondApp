@@ -26,7 +26,7 @@ class ThirdAnimalAdapter(
 
             Glide.with(binding.iv.context)
                 .load(R.drawable.cat)
-                .centerInside()
+//                .centerInside()
                 .into(binding.iv)
 
         }

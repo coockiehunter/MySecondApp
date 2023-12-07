@@ -13,7 +13,7 @@ class FirstViewModel : ViewModel() {
     fun loadData() {
         viewModelScope.launch {
             isLoading.postValue(true)
-            //
+            // some long operation
             isLoading.postValue(false)
 
         }

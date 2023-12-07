@@ -40,7 +40,7 @@ class SecondFragment : Fragment() {
         adapter = SecondAnimalAdapter { animal, position ->
             Toast.makeText(requireContext(), "Clicked element №$position", Toast.LENGTH_SHORT)
                 .show()
-            findNavController().navigate(SecondFragmentDirections.secondToThird())
+            findNavController().navigate(SecondFragmentDirections.secondToThird(animal))
         }
 
         swipe.setOnRefreshListener {

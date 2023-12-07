@@ -9,6 +9,7 @@ interface WeatherApiInterface {
 
     @GET("onecall")
     suspend fun getWeather(@QueryMap params: Map<String, String>): Response<WeatherApiModel>
+//    suspend fun getWeather(@QueryMap params: Map<String, String>): Response<List<CatFact>>
 
 
 }

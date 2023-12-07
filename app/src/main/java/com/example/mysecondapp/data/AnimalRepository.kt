@@ -2,17 +2,17 @@ package com.example.mysecondapp.data
 
 import com.example.mysecondapp.data.local.AnimalDb
 import com.example.mysecondapp.data.local.model.AnimalEntity
-import com.example.mysecondapp.data.remote.Api
+import com.example.mysecondapp.data.remote.AnimalApiInterface
 import com.example.mysecondapp.data.remote.model.AnimalApi
 
 object AnimalRepository {
 
     private val animalDb = AnimalDb()
-    private val api = Api()
+    private val api = AnimalApiInterface()
 
     fun getAnimalList(): List<AnimalEntity> {
 
-        val dataFromInet = api.getAnimalList()
+        val dataFromInet: List<AnimalApi>? = api.getAnimalList()
         if (dataFromInet != null) {
             val dataFromCache = ArrayList<AnimalEntity>()
             dataFromInet.forEach {
