@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.mysecondapp.Book
 import com.example.mysecondapp.databinding.FragmentFirstBinding
 import com.example.mysecondapp.domain.animal.model.Animal
+import com.example.network.SomeClass
 
 
 class FirstFragment : Fragment() {
@@ -32,14 +33,12 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val v = SomeClass()
+
         val redBook = Book("название", "author", 1980)
         val greenBook = Book("название", "author", 1980)
 
         val isread = redBook.read(5)
-
-
-
-
 
         binding.buttonToSecond.setOnClickListener {
             findNavController().navigate(
