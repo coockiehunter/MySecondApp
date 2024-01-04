@@ -1,4 +1,4 @@
-package com.example.mysecondapp
+package com.example.mysecondapp.presentation
 
 class MyFirstClass() {
 
