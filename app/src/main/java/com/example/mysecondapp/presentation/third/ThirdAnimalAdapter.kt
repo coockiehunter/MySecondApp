@@ -1,11 +1,10 @@
 package com.example.mysecondapp.presentation.third
 
+//import com.bumptech.glide.Glide
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.mysecondapp.Animal
-import com.example.mysecondapp.R
 import com.example.mysecondapp.databinding.ItemAnimalBinding
 
 class ThirdAnimalAdapter(
@@ -24,10 +23,10 @@ class ThirdAnimalAdapter(
                 onClick(animal, position)
             }
 
-            Glide.with(binding.iv.context)
-                .load(R.drawable.cat)
-//                .centerInside()
-                .into(binding.iv)
+//            Glide.with(binding.iv.context)
+//                .load(R.drawable.cat)
+////                .centerInside()
+//                .into(binding.iv)
 
         }
 
