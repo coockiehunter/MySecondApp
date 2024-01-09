@@ -56,9 +56,8 @@ class ThirdFragment : Fragment() {
             Toast.makeText(requireContext(), "Clicked element №$position", Toast.LENGTH_SHORT)
                 .show()
         }
-        adapter.setNewData(createAnimals())
-
         rv.adapter = adapter
+        adapter.submitList(createAnimals())
 
     }
 

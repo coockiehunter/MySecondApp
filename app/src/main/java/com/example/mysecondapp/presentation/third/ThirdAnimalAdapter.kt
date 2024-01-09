@@ -50,12 +50,6 @@ class ThirdAnimalAdapter(
         return list.size
     }
 
-    fun setNewData(newList: List<Animal>) {
-        list.clear()
-        list.addAll(newList)
-        notifyDataSetChanged()
-    }
-
     internal class DiffCallback : DiffUtil.ItemCallback<Animal>() {
         override fun areItemsTheSame(oldItem: Animal, newItem: Animal): Boolean {
             return oldItem.name == newItem.name
