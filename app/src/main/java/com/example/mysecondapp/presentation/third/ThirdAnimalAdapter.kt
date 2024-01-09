@@ -3,13 +3,17 @@ package com.example.mysecondapp.presentation.third
 //import com.bumptech.glide.Glide
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.mysecondapp.Animal
+import com.example.mysecondapp.R
 import com.example.mysecondapp.databinding.ItemAnimalBinding
 
 class ThirdAnimalAdapter(
     val onClick: (model: Animal, position: Int) -> Unit
-) : RecyclerView.Adapter<ThirdAnimalAdapter.AnimalViewHolder>() {
+) : ListAdapter<Animal, ThirdAnimalAdapter.AnimalViewHolder>(DiffCallback()) {
 
     private val list = ArrayList<Animal>()
 
@@ -23,10 +27,10 @@ class ThirdAnimalAdapter(
                 onClick(animal, position)
             }
 
-//            Glide.with(binding.iv.context)
-//                .load(R.drawable.cat)
-////                .centerInside()
-//                .into(binding.iv)
+            Glide.with(binding.iv.context)
+                .load(R.drawable.cat)
+//                .centerInside()
+                .into(binding.iv)
 
         }
 
@@ -50,6 +54,18 @@ class ThirdAnimalAdapter(
         list.clear()
         list.addAll(newList)
         notifyDataSetChanged()
+    }
+
+    internal class DiffCallback : DiffUtil.ItemCallback<Animal>() {
+        override fun areItemsTheSame(oldItem: Animal, newItem: Animal): Boolean {
+            return oldItem.name == newItem.name
+        }
+
+        override fun areContentsTheSame(oldItem: Animal, newItem: Animal): Boolean {
+            return (oldItem.name == newItem.name) &&
+                    (oldItem.desc == newItem.desc)
+        }
+
     }
 
 }
